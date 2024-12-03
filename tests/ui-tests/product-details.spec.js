@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-const HomePage = require('../../pages/homepage');
+const HomePage = require('../../pages/homepage')
 const ProductDetailsPage = require('../../pages/product-details-page');
 
 test('Airalo UI Automation Test - Verify Package Details', async ({ page }) => {

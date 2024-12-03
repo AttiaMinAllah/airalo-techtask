@@ -6,7 +6,7 @@ class HomePage {
   }
 
   async navigateToSite() {
-    await this.page.goto('https://www.airalo.com/');
+    await this.page.goto('/');
   }
 
   async searchForDestination(destination) {
