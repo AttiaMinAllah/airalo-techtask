@@ -1,17 +1,18 @@
 // @ts-check
 const { defineConfig, devices } = require('@playwright/test');
+const { API_BASE_URL } = require('./consts'); // Import the API base URL from consts
 
 /**
  * Read environment variables from file.
- * https://github.com/motdotla/dotenv
+ * Uncomment the line below if you are using a `.env` file for configuration.
  */
-// require('dotenv').config({ path: path.resolve(__dirname, '.env') });
+require('dotenv').config(); // Ensure dotenv is loaded to use environment variables
 
 /**
  * @see https://playwright.dev/docs/test-configuration
  */
 module.exports = defineConfig({
-  testDir: './tests',
+  testDir: './tests/api-tests', // Updated to point to the API tests directory
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -21,18 +22,21 @@ module.exports = defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
-  /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
+  reporter: 'html', // Keep HTML reporter for better debugging
+  /* Shared settings for all the projects below. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    // baseURL: 'http://127.0.0.1:3000',
-    //disable headless mode
+    baseURL: API_BASE_URL, // Dynamically fetch the base URL from consts
+
+    /* Disable headless mode */
     headless: false,
 
-    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
+    /* Set global timeout for each test to avoid issues with slower responses */
+    timeout: 60000, // Increase timeout to 60 seconds
+
+    /* Collect trace when retrying the failed test. */
     trace: 'on-first-retry',
   },
-  
 
   /* Configure projects for major browsers */
   projects: [
@@ -41,11 +45,11 @@ module.exports = defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
 
+    // Uncomment the following sections to enable more browsers:
     // {
     //   name: 'firefox',
     //   use: { ...devices['Desktop Firefox'] },
     // },
-
     // {
     //   name: 'webkit',
     //   use: { ...devices['Desktop Safari'] },
@@ -73,10 +77,10 @@ module.exports = defineConfig({
   ],
 
   /* Run your local dev server before starting the tests */
+  // Uncomment this section if you are testing a local application.
   // webServer: {
   //   command: 'npm run start',
   //   url: 'http://127.0.0.1:3000',
   //   reuseExistingServer: !process.env.CI,
   // },
 });
-
