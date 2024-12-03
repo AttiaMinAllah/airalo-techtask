@@ -9,5 +9,10 @@ module.exports = {
     dataValue: '[data-testid="DATA-value"]',
     validityValue: '[data-testid="VALIDITY-value"]',
     priceValue: '[data-testid="PRICE-value"]',
-  };
+    cookieBanner: '#onetrust-group-container',
+    manageCookiePreferences: '#onetrust-pc-btn-handler', // Locator for "Manage Cookie Preferences"
+    confirmMyChoicesButton: '.save-preference-btn-handler.onetrust-close-btn-handler', // Locator for "Confirm My Choices"
+};
+
+ 
   

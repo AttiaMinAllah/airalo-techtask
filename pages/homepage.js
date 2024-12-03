@@ -1,12 +1,14 @@
+const BasePage = require('../pages/base-page');
 const locators = require('../locators/airaloLocators');
 
-class HomePage {
+class HomePage extends BasePage {
   constructor(page) {
-    this.page = page;
+    super(page);
   }
 
   async navigateToSite() {
     await this.page.goto('/');
+    await this.manageCookiePreferences()
   }
 
   async searchForDestination(destination) {
