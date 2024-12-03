@@ -1,4 +1,4 @@
-# Airalo Tests
+# Airalo Test 
 
 This project is an automated testing framework built using Playwright with the Page Object Model (POM) design pattern. It supports both UI and API testing, with environment variable management using `dotenv`. The framework is modular, scalable, and easy to extend.
 
@@ -33,6 +33,10 @@ This project is an automated testing framework built using Playwright with the P
 ```bash
  UI: npx playwright test ui-test
 API: npx playwright test
+```
+5. UI test Demo
+
+[![Test Execution Demo](https://via.placeholder.com/600x400?text=Demo+Video)](https://github.com/user-attachments/assets/acf8c6a0-8d1d-4482-97e4-0d783e9106ae)
 
 
 
