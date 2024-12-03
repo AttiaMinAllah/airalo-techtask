@@ -32,12 +32,11 @@ This project is an automated testing framework built using Playwright with the P
 4. Run Tests
 ```bash
  UI: npx playwright test ui-test
-API: npx playwright test
+API: npx playwright test --config=playwright-api.config.js
 ```
-5. UI test Demo
+5. Tests Execution Demo
 
-[![Test Execution Demo](https://via.placeholder.com/600x400?text=Demo+Video)](https://github.com/user-attachments/assets/acf8c6a0-8d1d-4482-97e4-0d783e9106ae)
-
+[![Demo Video](https://via.placeholder.com/800x450.png?text=Click+to+Watch+Demo)](https://github.com/user-attachments/assets/cb41f0f5-006e-443b-8729-926e94288311)
 
 
 
